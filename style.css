@@ -1,0 +1,26 @@
+.content {
+    max-width: 75%;
+    margin: 0 auto;
+
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline overline wavy palevioletred;
+}
+
+table {
+    border: 3px solid pink;
+    text-align: center;
+    margin: 0 auto;
+}
+
+thead tr {
+    background: lightpink;
+}
+
+td,
+th {
+    border: 3px solid pink;
+    padding: 0 20px;
+}

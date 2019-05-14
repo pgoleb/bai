@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exchange Rate</title>
+        <link rel="stylesheet" href = "./style.css">
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <div class="content">
+            <h1>Current Exchange Rates</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Currency</td>
+                        <th>Exchange Rates</td>
+                        <th>Effective Date</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <script>
+            var usd = $("table tbody");
+            $.get("http://api.nbp.pl/api/exchangerates/rates/a/usd", function(data){
+               //console.log(data.rates[0].mid);
+               usd.append("<tr><td>" + data.code + "</td><td>" + data.rates[0].mid + "</td><td>" + data.rates[0].effectiveDate + "</td></tr>");
+               
+            });
+             $.get("http://api.nbp.pl/api/exchangerates/rates/a/gbp", function(data){
+               //console.log(data.rates[0].mid);
+               usd.append("<tr><td>" + data.code + "</td><td>" + data.rates[0].mid + "</td><td>" + data.rates[0].effectiveDate + "</td></tr>");
+               
+            });
+            $.get("http://api.nbp.pl/api/exchangerates/rates/a/chf", function(data){
+               //console.log(data.rates[0].mid);
+               usd.append("<tr><td>" + data.code + "</td><td>" + data.rates[0].mid + "</td><td>" + data.rates[0].effectiveDate + "</td></tr>");
+            });
+            $.get("http://api.nbp.pl/api/exchangerates/rates/a/eur", function(data){
+               //console.log(data.rates[0].mid);
+               usd.append("<tr><td>" + data.code + "</td><td>" + data.rates[0].mid + "</td><td>" + data.rates[0].effectiveDate + "</td></tr>");
+            });
+        </script>
+    </body>
+</html>

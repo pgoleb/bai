@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Poland</title>
+		<meta charset="UTF-8">
+		<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<h1>Official name</h1>
+		<p id="name_of_country"></p>
+		
+		<h1>Capital city</h1>
+		<p id="name_of_capital"></p>
+
+		<h1>Countries bordering</h1>
+		<p id="names_of_bordering_countries"></p>
+
+		<script>
+			// a JavaScript code here ...
+				$.getJSON("./poland.json", function (data) {
+						$("#name_of_country").append(data.name.native.pol.official);
+						$("#name_of_capital").append(data.captital);
+						$.each(data.borders, function (i, item) {
+							$("#names_of_bordering_countries").append("<li>" + item + "</li>")
+						});
+				});
+		</script>
+	</body>
+</html>
